@@ -1,0 +1,29 @@
+name: API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Run API Tests
+        run: |
+          newman run collections/Restful_Booker_API_Tests.postman_collection.json \
+          -e environments/Restful_Booker_Env.postman_environment.json \
+          -r htmlextra --reporter-htmlextra-export reports/api_test_report.html
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: API Test Report
+          path: reports/api_test_report.html
