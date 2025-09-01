@@ -14,7 +14,7 @@ It uses **Postman** for request design, **Newman** for CLI execution, and **GitH
 
 **View Detailed Test report**
 [Click here to view report](https://github.com/SRISHAKJ/restful-booker-api-tests/blob/main/report.html)
-
+![Test Report Screenshot](https://github.com/SRISHAKJ/restful-booker-api-tests/blob/main/report_screenshot.png)
 **How to Run Locally**
 Clone the repo and run the following:
 ```bash
