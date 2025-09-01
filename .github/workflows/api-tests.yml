@@ -17,13 +17,17 @@ jobs:
         run: npm install -g newman newman-reporter-htmlextra
 
       - name: Run API Tests
+  env:
+    BOOKER_USERNAME: ${{ secrets.BOOKER_USERNAME }}
+    BOOKER_PASSWORD: ${{ secrets.BOOKER_PASSWORD }}
   run: |
     newman run collections/Restful_Booker_API_Tests.postman_collection.json \
-    -e environments/Restful_Booker_Env.postman_environment.json \
-    --env-var "base_url=https://restful-booker.herokuapp.com" \
-    --env-var "username=${{ secrets.BOOKER_USERNAME }}" \
-    --env-var "password=${{ secrets.BOOKER_PASSWORD }}" \
-    -r htmlextra --reporter-htmlextra-export reports/api_test_report.html
+      -e environments/Restful_Booker_Env.postman_environment.json \
+      --env-var "base_url=https://restful-booker.herokuapp.com" \
+      --env-var "username=$BOOKER_USERNAME" \
+      --env-var "password=$BOOKER_PASSWORD" \
+      -r htmlextra --reporter-htmlextra-export reports/api_test_report.html
+
 
 
       - name: Upload Test Report
