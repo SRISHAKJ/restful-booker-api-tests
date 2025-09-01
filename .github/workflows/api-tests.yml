@@ -21,8 +21,8 @@ jobs:
           BOOKER_USERNAME: ${{ secrets.BOOKER_USERNAME }}
           BOOKER_PASSWORD: ${{ secrets.BOOKER_PASSWORD }}
         run: |
-          newman run collections/Restful_Booker_API_Tests.postman_collection.json \
-            -e environments/Restful_Booker_Env.postman_environment.json \
+          newman run "Restful Booker API Tests.postman_collection.json" \
+            -e "Restful Booker Env.postman_environment.json" \
             --env-var "base_url=https://restful-booker.herokuapp.com" \
             --env-var "username=$BOOKER_USERNAME" \
             --env-var "password=$BOOKER_PASSWORD" \
