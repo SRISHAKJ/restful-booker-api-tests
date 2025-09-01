@@ -20,7 +20,4 @@ newman run "Restful Booker API Tests.postman_collection.json" \
   -e "Restful Booker Env.postman_environment.json" \
   -r htmlextra --reporter-htmlextra-export report.html
 
-**Test Report**
-A sample test execution report is available here:  
-[View Report](report.html)
 
