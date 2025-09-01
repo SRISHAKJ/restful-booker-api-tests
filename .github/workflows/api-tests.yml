@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Newman
         run: npm install -g newman newman-reporter-htmlextra
@@ -29,7 +29,7 @@ jobs:
             -r htmlextra --reporter-htmlextra-export reports/api_test_report.html
 
       - name: Upload Test Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: API Test Report
           path: reports/api_test_report.html
